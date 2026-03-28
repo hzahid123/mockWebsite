@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
+import SectionIcon from "./SectionIcon";
 
 export default function Header({ theme, onToggleTheme, isBookingPage = false }) {
   const [open, setOpen] = useState(false);
@@ -37,6 +38,11 @@ export default function Header({ theme, onToggleTheme, isBookingPage = false }) 
             </a>
           </li>
           <li>
+            <a href={homeHash("roadmaps")} onClick={() => setOpen(false)}>
+              Roadmaps
+            </a>
+          </li>
+          <li>
             <a href={homeHash("pricing")} onClick={() => setOpen(false)}>
               Pricing
             </a>
@@ -46,10 +52,16 @@ export default function Header({ theme, onToggleTheme, isBookingPage = false }) 
               FAQ
             </a>
           </li>
+          <li>
+            <a href="/payment-methods" onClick={() => setOpen(false)}>
+              Payments
+            </a>
+          </li>
         </ul>
 
         <ThemeToggle theme={theme} onToggle={onToggleTheme} />
-        <a href="/book-mock-interview" className="btn btn-small ripple-btn">
+        <a href="/book-mock-interview" className="btn btn-small ripple-btn btn--with-icon">
+          <SectionIcon name="video" size={18} strokeWidth={2} className="btn-icon" />
           Book mock interview
         </a>
       </nav>

@@ -164,6 +164,10 @@ export const faqs = [
     a: `Orders are fulfilled on WhatsApp. ${PDF_DELIVERY_SLA} If you pay outside working hours or on a non-working day, delivery is on the next working day.`
   },
   {
+    q: "How do I pay — JazzCash or bank?",
+    a: `All wallet and bank account details (JazzCash and Meezan Bank, account title Haseeb Zahid) are on the Payment methods page. After paying, send your screenshot to ${PHONE_DISPLAY} on WhatsApp with what you purchased or booked.`
+  },
+  {
     q: "How do I book a mock interview?",
     a: `Everything starts on the Book mock interview page: submit your details and preferred slot, pay PKR 2000, then send your payment confirmation to ${PHONE_DISPLAY} on WhatsApp. We confirm your session and share next steps from there.`
   },
@@ -174,5 +178,9 @@ export const faqs = [
   {
     q: "How much does a mock interview cost?",
     a: "A single mock interview session is PKR 2000. Course bundle pricing is shown in the Pricing section."
+  },
+  {
+    q: "How do learning roadmaps work on this site?",
+    a: "The Roadmaps section is a free preview: the first milestones are clear, and the rest stay blurred as a hook for what is ahead. The full route — order, depth, pacing, and how it ties to interviews — is covered inside your PKR 2000 mock interview when you book for that niche (e.g. frontend, backend, .NET, Angular). Use Book mock interview from the roadmap CTA or Pricing; pay and confirm on WhatsApp as usual."
   }
 ];

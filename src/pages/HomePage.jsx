@@ -4,6 +4,7 @@ import TrustSection from "../components/home/TrustSection";
 import ServicesSection from "../components/home/ServicesSection";
 import MockProcessSection from "../components/home/MockProcessSection";
 import CoursesSection from "../components/home/CoursesSection";
+import RoadmapsSection from "../components/home/RoadmapsSection";
 // import AdSlotSection from "../components/home/AdSlotSection";
 import TestimonialsSection from "../components/home/TestimonialsSection";
 import WhyUsSection from "../components/home/WhyUsSection";
@@ -21,6 +22,7 @@ export default function HomePage() {
       <ServicesSection />
       <MockProcessSection />
       <CoursesSection />
+      <RoadmapsSection />
       {/* <AdSlotSection /> */}
       <WhyUsSection />
       <PricingSection />

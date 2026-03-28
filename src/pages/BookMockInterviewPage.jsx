@@ -1,4 +1,5 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import useUiEffects from "../hooks/useUiEffects";
 import SectionIcon from "../components/SectionIcon";
 import { submitMockInterviewBooking } from "../lib/submitBookingEmail";
@@ -10,6 +11,7 @@ import {
   WHATSAPP_MOCK_PAYMENT_CONFIRM_URL,
   WHATSAPP_ORDER_PDF_URL
 } from "../config/contact";
+import { PAYMENT_METHODS_PATH } from "../config/paymentMethods";
 
 const initialForm = {
   fullName: "",
@@ -23,8 +25,24 @@ const initialForm = {
   consent: false
 };
 
+/** Query `?track=` from Roadmaps section — same ids as roadmapsData. */
+const TRACK_TO_ROLE = {
+  frontend: "frontend",
+  backend: "backend",
+  dotnet: "dotnet",
+  angular: "angular"
+};
+
+const TRACK_TITLE = {
+  frontend: "Frontend",
+  backend: "Backend",
+  dotnet: ".NET",
+  angular: "Angular"
+};
+
 export default function BookMockInterviewPage() {
   useUiEffects();
+  const [searchParams] = useSearchParams();
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
@@ -36,6 +54,16 @@ export default function BookMockInterviewPage() {
     today.setHours(0, 0, 0, 0);
     return today.toISOString().slice(0, 10);
   }, []);
+
+  const trackParam = searchParams.get("track");
+  const trackRole = trackParam && TRACK_TO_ROLE[trackParam];
+  const trackTitle = trackParam && TRACK_TITLE[trackParam];
+
+  useEffect(() => {
+    if (trackRole) {
+      setForm((prev) => ({ ...prev, role: trackRole }));
+    }
+  }, [trackRole]);
 
   const setField = (key, value) => setForm((prev) => ({ ...prev, [key]: value }));
 
@@ -80,9 +108,17 @@ export default function BookMockInterviewPage() {
           <p className="eyebrow reveal">Mock Interview</p>
           <h1 className="page-title reveal">Book Your Mock Interview</h1>
           <p className="page-lead reveal">
-            Use this single flow for mock interviews: submit your details and preferred slot below, pay PKR 2000, then
-            send your payment confirmation on WhatsApp so we can lock in your session.
+            One flow for all mocks: submit your details and preferred slot below, pay PKR 2000 (JazzCash or Meezan Bank —{" "}
+            <a href={PAYMENT_METHODS_PATH}>all details here</a>
+            ), then send your payment confirmation on WhatsApp so we can lock in your session. If you came from Learning
+            roadmaps, the full roadmap for your niche is part of this same session — not a separate booking.
           </p>
+          {trackTitle && trackRole ? (
+            <p className="page-lead-note reveal">
+              <strong>{trackTitle}</strong> is pre-selected below; we will cover the complete roadmap for this track in
+              your mock.
+            </p>
+          ) : null}
         </div>
       </section>
 
@@ -101,7 +137,9 @@ export default function BookMockInterviewPage() {
                     <a href={MAILTO_CONTACT}>{CONTACT_EMAIL}</a>. We will follow up with your slot and next steps.
                   </p>
                   <p className="form-success-next">
-                    <strong>Next step:</strong> Pay PKR 2000 for your mock slot, then{" "}
+                    <strong>Next step:</strong> Pay PKR 2000 for your mock slot (see{" "}
+                    <a href={PAYMENT_METHODS_PATH}>payment methods</a>
+                    ), then{" "}
                     <a href={WHATSAPP_MOCK_PAYMENT_CONFIRM_URL} target="_blank" rel="noreferrer">
                       message us on WhatsApp
                     </a>{" "}
@@ -182,6 +220,8 @@ export default function BookMockInterviewPage() {
                     <option value="">Choose a track</option>
                     <option value="frontend">Frontend Engineer</option>
                     <option value="backend">Backend Engineer</option>
+                    <option value="angular">Angular</option>
+                    <option value="dotnet">.NET / Backend (.NET)</option>
                     <option value="fullstack">Full Stack Engineer</option>
                     <option value="system">System Design</option>
                     <option value="data">Data / ML</option>
@@ -285,6 +325,16 @@ export default function BookMockInterviewPage() {
           </div>
 
           <aside className="booking-aside reveal">
+            <div className="booking-aside-card booking-aside-payment">
+              <h3>Where to pay</h3>
+              <p className="booking-aside-payment-lead">
+                JazzCash and Meezan Bank account details (with copy buttons) are on one page.
+              </p>
+              <a href={PAYMENT_METHODS_PATH} className="btn btn-small ripple-btn btn--with-icon booking-payment-link">
+                <SectionIcon name="wallet" size={18} strokeWidth={2} className="btn-icon" />
+                View payment methods
+              </a>
+            </div>
             <div className="booking-aside-card">
               <h3>How mock booking works</h3>
               <ol className="booking-steps">

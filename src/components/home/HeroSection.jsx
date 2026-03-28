@@ -60,7 +60,8 @@ export default function HeroSection() {
               interview question PDFs once your payment is confirmed.
             </p>
             <div className="hero-actions">
-              <a href="/book-mock-interview" className="btn ripple-btn">
+              <a href="/book-mock-interview" className="btn ripple-btn btn--with-icon">
+                <SectionIcon name="video" size={20} strokeWidth={2} className="btn-icon" />
                 Book mock interview
               </a>
             </div>

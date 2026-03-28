@@ -31,6 +31,10 @@ export default function Footer() {
               Message on WhatsApp
             </a>
           </p>
+          <p className="footer-link-row">
+            <SectionIcon name="wallet" size={18} className="footer-inline-icon" />
+            <a href="/payment-methods">Payment methods</a>
+          </p>
         </div>
         <div>
           <h3>Social</h3>

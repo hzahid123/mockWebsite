@@ -20,7 +20,13 @@ export default function ServicesSection() {
               </div>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
-              <a href={item.ctaHref} className="btn btn-small ripple-btn">
+              <a
+                href={item.ctaHref}
+                className={`btn btn-small ripple-btn${item.ctaHref === "/book-mock-interview" ? " btn--with-icon" : ""}`}
+              >
+                {item.ctaHref === "/book-mock-interview" ? (
+                  <SectionIcon name="video" size={18} strokeWidth={2} className="btn-icon" />
+                ) : null}
                 {item.ctaLabel}
               </a>
             </article>

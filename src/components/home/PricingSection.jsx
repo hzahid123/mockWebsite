@@ -24,10 +24,13 @@ export default function PricingSection() {
                 <p className="price">{plan.price}</p>
                 <p>{plan.description}</p>
                 <a
-                  className="btn btn-small ripple-btn"
+                  className={`btn btn-small ripple-btn${plan.ctaHref === "/book-mock-interview" ? " btn--with-icon" : ""}`}
                   href={plan.ctaHref}
                   {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
                 >
+                  {plan.ctaHref === "/book-mock-interview" ? (
+                    <SectionIcon name="video" size={18} strokeWidth={2} className="btn-icon" />
+                  ) : null}
                   {plan.ctaLabel}
                 </a>
               </article>

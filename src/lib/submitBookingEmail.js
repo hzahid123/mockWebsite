@@ -4,6 +4,8 @@ const ROLE_LABELS = {
   frontend: "Frontend Engineer",
   backend: "Backend Engineer",
   fullstack: "Full Stack Engineer",
+  dotnet: ".NET / Backend (.NET)",
+  angular: "Angular",
   system: "System Design",
   data: "Data / ML",
   other: "Other"
