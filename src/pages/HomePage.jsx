@@ -1,6 +1,7 @@
 import useUiEffects from "../hooks/useUiEffects";
 import HeroSection from "../components/home/HeroSection";
 import TrustSection from "../components/home/TrustSection";
+import SoftwareHousesMarquee from "../components/home/SoftwareHousesMarquee";
 import ServicesSection from "../components/home/ServicesSection";
 import MockProcessSection from "../components/home/MockProcessSection";
 import CoursesSection from "../components/home/CoursesSection";
@@ -19,6 +20,7 @@ export default function HomePage() {
     <main>
       <HeroSection />
       <TrustSection />
+      <SoftwareHousesMarquee />
       <ServicesSection />
       <MockProcessSection />
       <CoursesSection />

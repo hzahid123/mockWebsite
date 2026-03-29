@@ -548,6 +548,199 @@ a {
   line-height: 1.55;
 }
 
+/* —— Pakistan software houses marquee —— */
+.software-marquee {
+  padding-top: clamp(3.75rem, 7vw, 6rem);
+  padding-bottom: clamp(3.75rem, 7vw, 6rem);
+}
+
+.software-marquee-head {
+  text-align: center;
+  margin-bottom: clamp(1.85rem, 4vw, 2.65rem);
+}
+
+.software-marquee-head h2 {
+  margin: 0.45rem 0 0.65rem;
+  font-size: clamp(1.55rem, 3.6vw, 2.2rem);
+  line-height: 1.2;
+  color: var(--primary-text);
+}
+
+.software-marquee-lead {
+  margin: 0 auto;
+  max-width: 42rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  line-height: 1.6;
+}
+
+.software-marquee-outer {
+  position: relative;
+  margin-top: 0.35rem;
+}
+
+.software-marquee-viewport {
+  overflow: hidden;
+  width: 100%;
+  padding-block: 0.35rem;
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+}
+
+.software-marquee-track {
+  display: flex;
+  gap: clamp(1.35rem, 3vw, 2rem);
+  width: max-content;
+  animation: software-marquee-ltr 88s linear infinite;
+}
+
+@keyframes software-marquee-ltr {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.software-marquee-set {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.45rem);
+  flex-shrink: 0;
+}
+
+.software-marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 0.95rem;
+  padding: 0.78rem 1.4rem 0.78rem 0.78rem;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid rgba(92, 10, 46, 0.1);
+  box-shadow: var(--shadow);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .software-marquee-item {
+  border-color: rgba(215, 188, 143, 0.14);
+}
+
+.software-marquee-logo-wrap {
+  width: 3.45rem;
+  height: 3.45rem;
+  border-radius: 14px;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  padding: 0.38rem;
+  flex-shrink: 0;
+  border: 1px solid rgba(92, 10, 46, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+[data-theme="dark"] .software-marquee-logo-wrap {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(215, 188, 143, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.software-marquee-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.software-marquee-avatar {
+  width: 3.45rem;
+  height: 3.45rem;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #fff;
+  line-height: 1;
+}
+
+.software-marquee-avatar--1 {
+  background: linear-gradient(135deg, #0d4f6f, #1a7aa8);
+}
+.software-marquee-avatar--2 {
+  background: linear-gradient(135deg, #5c0a2e, #8b2252);
+}
+.software-marquee-avatar--3 {
+  background: linear-gradient(135deg, #1e5f3f, #2d8a5c);
+}
+.software-marquee-avatar--4 {
+  background: linear-gradient(135deg, #4a3f8c, #6b5bb5);
+}
+.software-marquee-avatar--5 {
+  background: linear-gradient(135deg, #8b4513, #c56c1a);
+}
+.software-marquee-avatar--6 {
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+}
+.software-marquee-avatar--7 {
+  background: linear-gradient(135deg, #b45309, #d97706);
+}
+.software-marquee-avatar--8 {
+  background: linear-gradient(135deg, #1e3a5f, #3b5bdb);
+}
+.software-marquee-avatar--9 {
+  background: linear-gradient(135deg, #0f172a, #334155);
+}
+.software-marquee-avatar--10 {
+  background: linear-gradient(135deg, #831843, #be185d);
+}
+
+.software-marquee-name {
+  font-size: clamp(0.95rem, 1.5vw, 1.08rem);
+  font-weight: 600;
+  color: var(--primary-text);
+}
+
+.software-marquee-disclaimer {
+  margin: clamp(1.15rem, 3vw, 1.5rem) auto 0;
+  max-width: 32rem;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .software-marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 58rem;
+    margin: 0 auto;
+    justify-content: center;
+    transform: none !important;
+    row-gap: 0.85rem;
+  }
+
+  .software-marquee-set:last-child {
+    display: none;
+  }
+
+  .software-marquee-set {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  .software-marquee-viewport {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+}
+
 .services-grid {
   grid-template-columns: repeat(2, 1fr);
 }
