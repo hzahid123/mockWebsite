@@ -4,7 +4,7 @@ import TrustSection from "../components/home/TrustSection";
 import SoftwareHousesMarquee from "../components/home/SoftwareHousesMarquee";
 import ServicesSection from "../components/home/ServicesSection";
 import MockProcessSection from "../components/home/MockProcessSection";
-import CoursesSection from "../components/home/CoursesSection";
+import SessionMaterialsSection from "../components/home/SessionMaterialsSection";
 import RoadmapsSection from "../components/home/RoadmapsSection";
 // import AdSlotSection from "../components/home/AdSlotSection";
 import TestimonialsSection from "../components/home/TestimonialsSection";
@@ -23,7 +23,7 @@ export default function HomePage() {
       <SoftwareHousesMarquee />
       <ServicesSection />
       <MockProcessSection />
-      <CoursesSection />
+      <SessionMaterialsSection />
       <RoadmapsSection />
       {/* <AdSlotSection /> */}
       <WhyUsSection />

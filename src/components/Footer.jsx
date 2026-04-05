@@ -1,11 +1,19 @@
-import SectionIcon from "./SectionIcon";
+import { FaCreditCard, FaEnvelope, FaLinkedinIn, FaPhone } from "react-icons/fa6";
+import { SiFacebook, SiInstagram, SiWhatsapp, SiYoutube } from "react-icons/si";
 import {
   CONTACT_EMAIL,
   MAILTO_CONTACT,
   PHONE_DISPLAY,
   TEL_CONTACT,
-  WHATSAPP_ORDER_PDF_URL
+  WHATSAPP_CONTACT_URL
 } from "../config/contact";
+
+const SOCIAL = {
+  facebook: "https://www.facebook.com/profile.php?id=61577632290085",
+  instagram: "https://www.instagram.com/dry_run1/",
+  linkedin: "https://www.linkedin.com/company/dryrun1/posts/?feedView=all",
+  youtube: "https://www.youtube.com/@dryrun-e2w"
+};
 
 export default function Footer() {
   return (
@@ -18,42 +26,84 @@ export default function Footer() {
         <div>
           <h3>Contact</h3>
           <p className="footer-link-row">
-            <SectionIcon name="mail" size={18} className="footer-inline-icon" />
-            <a href={MAILTO_CONTACT}>{CONTACT_EMAIL}</a>
-          </p>
-          <p className="footer-link-row">
-            <SectionIcon name="phone" size={18} className="footer-inline-icon" />
-            <a href={TEL_CONTACT}>{PHONE_DISPLAY}</a>
-          </p>
-          <p className="footer-link-row">
-            <SectionIcon name="messageCircle" size={18} className="footer-inline-icon" />
-            <a href={WHATSAPP_ORDER_PDF_URL} target="_blank" rel="noreferrer">
-              Message on WhatsApp
+            <a href={MAILTO_CONTACT} className="footer-social-link">
+              <FaEnvelope className="footer-contact-icon footer-contact-icon--accent" size={20} aria-hidden />
+              <span>{CONTACT_EMAIL}</span>
             </a>
           </p>
           <p className="footer-link-row">
-            <SectionIcon name="wallet" size={18} className="footer-inline-icon" />
-            <a href="/payment-methods">Payment methods</a>
+            <a href={TEL_CONTACT} className="footer-social-link">
+              <FaPhone className="footer-contact-icon footer-contact-icon--accent" size={20} aria-hidden />
+              <span>{PHONE_DISPLAY}</span>
+            </a>
+          </p>
+          <p className="footer-link-row">
+            <a
+              href={WHATSAPP_CONTACT_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="footer-social-link"
+              aria-label="Message on WhatsApp"
+            >
+              <SiWhatsapp className="footer-contact-icon footer-contact-icon--whatsapp" size={20} aria-hidden />
+              <span>Message on WhatsApp</span>
+            </a>
+          </p>
+          <p className="footer-link-row">
+            <a href="/payment-methods" className="footer-social-link">
+              <FaCreditCard className="footer-contact-icon footer-contact-icon--accent" size={20} aria-hidden />
+              <span>Payment methods</span>
+            </a>
           </p>
         </div>
         <div>
           <h3>Social</h3>
           <p className="footer-link-row">
-            <SectionIcon name="linkedin" size={18} className="footer-inline-icon" />
-            <a href="#" aria-label="LinkedIn">
-              LinkedIn
+            <a
+              href={SOCIAL.facebook}
+              target="_blank"
+              rel="noreferrer"
+              className="footer-social-link"
+              aria-label="Dry Run on Facebook"
+            >
+              <SiFacebook className="footer-brand-icon footer-brand-icon--facebook" size={20} aria-hidden />
+              <span>Facebook</span>
             </a>
           </p>
           <p className="footer-link-row">
-            <SectionIcon name="instagram" size={18} className="footer-inline-icon" />
-            <a href="#" aria-label="Instagram">
-              Instagram
+            <a
+              href={SOCIAL.instagram}
+              target="_blank"
+              rel="noreferrer"
+              className="footer-social-link"
+              aria-label="Dry Run on Instagram"
+            >
+              <SiInstagram className="footer-brand-icon footer-brand-icon--instagram" size={20} aria-hidden />
+              <span>Instagram</span>
             </a>
           </p>
           <p className="footer-link-row">
-            <SectionIcon name="youtube" size={18} className="footer-inline-icon" />
-            <a href="#" aria-label="YouTube">
-              YouTube
+            <a
+              href={SOCIAL.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="footer-social-link"
+              aria-label="Haseeb Zahid on LinkedIn"
+            >
+              <FaLinkedinIn className="footer-brand-icon footer-brand-icon--linkedin" size={20} aria-hidden />
+              <span>LinkedIn</span>
+            </a>
+          </p>
+          <p className="footer-link-row">
+            <a
+              href={SOCIAL.youtube}
+              target="_blank"
+              rel="noreferrer"
+              className="footer-social-link"
+              aria-label="Dry Run on YouTube"
+            >
+              <SiYoutube className="footer-brand-icon footer-brand-icon--youtube" size={20} aria-hidden />
+              <span>YouTube</span>
             </a>
           </p>
         </div>

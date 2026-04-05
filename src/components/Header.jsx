@@ -33,8 +33,8 @@ export default function Header({ theme, onToggleTheme, isBookingPage = false }) 
             </a>
           </li>
           <li>
-            <a href={homeHash("courses")} onClick={() => setOpen(false)}>
-              PDF packs
+            <a href={homeHash("session-materials")} onClick={() => setOpen(false)}>
+              Materials
             </a>
           </li>
           <li>

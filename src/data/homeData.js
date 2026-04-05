@@ -1,12 +1,4 @@
-import { PHONE_DISPLAY, WHATSAPP_ORDER_PLAN_URL } from "../config/contact";
-
-/** PDF delivery: 1 working hour during working / business days, after confirmed payment. */
-export const PDF_DELIVERY_SLA =
-  "Within one business hour on working days, once your payment is confirmed on WhatsApp.";
-
-/** Shorter line for course cards under “Duration”. */
-export const PDF_DELIVERY_SLA_SHORT =
-  "1 business hour on working days, after payment confirmation on WhatsApp";
+import { PHONE_DISPLAY } from "../config/contact";
 
 /** Honest trust signals — no fabricated volume stats. */
 export const trustPillars = [
@@ -37,10 +29,11 @@ export const services = [
   },
   {
     icon: "fileText",
-    title: "Question PDF packs",
-    description: "Download role-based interview question PDFs for frontend, backend, full stack, and DSA.",
-    ctaLabel: "View PDF packs",
-    ctaHref: "#courses"
+    title: "Question materials with your session",
+    description:
+      "Curated interview question packs (PDF-style) for your track are shared when you book a 1:1 mock—not sold separately here.",
+    ctaLabel: "Book to get materials",
+    ctaHref: "#session-materials"
   }
 ];
 
@@ -49,7 +42,7 @@ export const mockSteps = [
     number: "01",
     icon: "route",
     title: "Choose Your Role",
-    description: "Pick frontend, full stack, or specialized tracks based on your goal."
+    description: "Pick frontend, backend, DSA, database, OOP, or other tracks based on your goal."
   },
   {
     number: "02",
@@ -61,16 +54,34 @@ export const mockSteps = [
   {
     number: "03",
     icon: "badgeCheck",
-    title: "Get Expert Feedback",
-    description: "Receive actionable insights, scoring, and a roadmap for improvement."
+    title: "Feedback & practice pack",
+    description:
+      "Get expert feedback on your mock, plus related question materials for your niche so you can keep drilling after the session."
   }
 ];
 
-export const courses = [
-  { icon: "layout", title: "Frontend Interview Questions PDF", duration: PDF_DELIVERY_SLA_SHORT, price: "PKR 100" },
-  { icon: "server", title: "Backend Interview Questions PDF", duration: PDF_DELIVERY_SLA_SHORT, price: "PKR 100" },
-  { icon: "layers", title: "Full Stack Interview Questions PDF", duration: PDF_DELIVERY_SLA_SHORT, price: "PKR 100" },
-  { icon: "binary", title: "DSA Interview Questions PDF", duration: PDF_DELIVERY_SLA_SHORT, price: "PKR 100" }
+/** Topics covered by materials shared after a booked mock (no standalone purchase on this site). */
+export const sessionMaterialTopics = [
+  {
+    icon: "layout",
+    title: "Frontend",
+    blurb: "UI, JS, and typical frontend interview angles aligned to your stack."
+  },
+  {
+    icon: "server",
+    title: "Backend",
+    blurb: "APIs, data, and service design questions matched to your focus."
+  },
+  {
+    icon: "layers",
+    title: "Full stack",
+    blurb: "Cross-cutting prompts that mirror end-to-end ownership interviews."
+  },
+  {
+    icon: "binary",
+    title: "DSA",
+    blurb: "Patterns and problem types to reinforce what interviewers actually ask."
+  }
 ];
 
 export const testimonials = [
@@ -89,7 +100,7 @@ export const testimonials = [
     name: "Meera S.",
     avatar: "woman",
     quote:
-      "The PDF packs and mock sessions gave me a complete preparation plan. I landed two interview calls within weeks."
+      "The mock sessions and follow-up practice materials gave me a clear prep plan. I landed two interview calls within weeks."
   }
 ];
 
@@ -116,56 +127,22 @@ export const pricingPlans = [
     icon: "video",
     name: "Mock Interview",
     price: "PKR 2000",
-    description: "One-on-one mock interview with structured, targeted feedback. Session scheduled after payment confirmation.",
-    featured: false,
+    description:
+      "One-on-one mock with structured feedback. After your session, you receive related question materials for your track. Session scheduled after payment confirmation.",
+    featured: true,
     ctaHref: "/book-mock-interview",
     ctaLabel: "Book mock interview"
-  },
-  {
-    icon: "packageOpen",
-    name: "Course Bundle",
-    price: "PKR 300",
-    description: "Access to all interview question PDF packs. Materials sent after payment confirmation.",
-    featured: true,
-    ctaHref: WHATSAPP_ORDER_PLAN_URL,
-    ctaLabel: "Order on WhatsApp"
-  }
-];
-
-export const pdfDeliverySteps = [
-  {
-    icon: "wallet",
-    title: "Make Payment",
-    description: "Pay PKR 100 for your selected PDF pack or plan."
-  },
-  {
-    icon: "messageCircle",
-    title: "Send Screenshot on WhatsApp",
-    description: `Send your payment screenshot to ${PHONE_DISPLAY} on WhatsApp with your selected plan name.`
-  },
-  {
-    icon: "fileDown",
-    title: "Receive PDFs (working hours)",
-    description: `We send your PDFs on WhatsApp after verification: ${PDF_DELIVERY_SLA}`
   }
 ];
 
 export const faqs = [
   {
-    q: "How do I receive the PDF after payment?",
-    a: `Pay for your pack, then send a clear payment screenshot to ${PHONE_DISPLAY} on WhatsApp with the exact PDF name you purchased. ${PDF_DELIVERY_SLA}`
-  },
-  {
-    q: "What is the price of each PDF pack?",
-    a: "Each role-based interview questions PDF listed on this site is PKR 100 unless stated otherwise."
-  },
-  {
-    q: "When will I get my PDFs?",
-    a: `Orders are fulfilled on WhatsApp. ${PDF_DELIVERY_SLA} If you pay outside working hours or on a non-working day, delivery is on the next working day.`
+    q: "How do I get interview question PDFs or packs?",
+    a: `We do not sell PDFs separately on this site. When you book a 1:1 mock interview (PKR 2000), we share curated question materials matched to your role or track after the session so you can keep practicing. Book from the home page or Pricing, then confirm payment on WhatsApp at ${PHONE_DISPLAY}.`
   },
   {
     q: "How do I pay — JazzCash or bank?",
-    a: `All wallet and bank account details (JazzCash and Meezan Bank, account title Haseeb Zahid) are on the Payment methods page. After paying, send your screenshot to ${PHONE_DISPLAY} on WhatsApp with what you purchased or booked.`
+    a: `All wallet and bank account details (JazzCash and Meezan Bank, account title Haseeb Zahid) are on the Payment methods page. After paying for your mock, send your screenshot to ${PHONE_DISPLAY} on WhatsApp so we can confirm your booking.`
   },
   {
     q: "How do I book a mock interview?",
@@ -177,10 +154,14 @@ export const faqs = [
   },
   {
     q: "How much does a mock interview cost?",
-    a: "A single mock interview session is PKR 2000. Course bundle pricing is shown in the Pricing section."
+    a: "A single mock interview session is PKR 2000. Related question materials are included with your booked session—not sold as a separate product here."
   },
   {
     q: "How do learning roadmaps work on this site?",
-    a: "The Roadmaps section is a free preview: the first milestones are clear, and the rest stay blurred as a hook for what is ahead. The full route — order, depth, pacing, and how it ties to interviews — is covered inside your PKR 2000 mock interview when you book for that niche (e.g. frontend, backend, .NET, Angular). Use Book mock interview from the roadmap CTA or Pricing; pay and confirm on WhatsApp as usual."
+    a: "The Roadmaps section is a free preview: the first milestones are clear, and the rest stay blurred as a hook for what is ahead. The full route — order, depth, pacing, and how it ties to interviews — is covered inside your PKR 2000 mock interview when you book for that niche (OOP, Database, DSA, Frontend, or Backend). Use Book mock interview from the roadmap CTA or Pricing; pay and confirm on WhatsApp as usual."
+  },
+  {
+    q: "How can I message you on WhatsApp?",
+    a: `You can reach us at ${PHONE_DISPLAY}. Use the “Message on WhatsApp” link in the footer to open a chat.`
   }
 ];

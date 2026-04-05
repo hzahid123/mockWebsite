@@ -9,7 +9,7 @@ import {
   PHONE_DISPLAY,
   TEL_CONTACT,
   WHATSAPP_MOCK_PAYMENT_CONFIRM_URL,
-  WHATSAPP_ORDER_PDF_URL
+  WHATSAPP_CONTACT_URL
 } from "../config/contact";
 import { PAYMENT_METHODS_PATH } from "../config/paymentMethods";
 
@@ -361,7 +361,7 @@ export default function BookMockInterviewPage() {
               <h3>Need help?</h3>
               <p>
                 Email <a href={MAILTO_CONTACT}>{CONTACT_EMAIL}</a> or WhatsApp{" "}
-                <a href={WHATSAPP_ORDER_PDF_URL} target="_blank" rel="noreferrer">
+                <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noreferrer">
                   {PHONE_DISPLAY}
                 </a>{" "}
                 / <a href={TEL_CONTACT}>call {PHONE_DISPLAY}</a>.

@@ -4,7 +4,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import BookMockInterviewPage from "./pages/BookMockInterviewPage";
-import PdfDeliveryPage from "./pages/PdfDeliveryPage";
 import PaymentMethodsPage from "./pages/PaymentMethodsPage";
 
 function getInitialTheme() {
@@ -43,7 +42,6 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/book-mock-interview" element={<BookMockInterviewPage />} />
-        <Route path="/pdf-delivery" element={<PdfDeliveryPage />} />
         <Route path="/payment-methods" element={<PaymentMethodsPage />} />
       </Routes>
       <Footer />

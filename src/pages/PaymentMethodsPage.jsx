@@ -3,7 +3,7 @@ import useUiEffects from "../hooks/useUiEffects";
 import SectionIcon from "../components/SectionIcon";
 import PaymentBrandMark from "../components/payment/PaymentBrandMark";
 import { PAYMENT_METHODS } from "../config/paymentMethods";
-import { PHONE_DISPLAY, WHATSAPP_ORDER_PDF_URL, WHATSAPP_MOCK_PAYMENT_CONFIRM_URL } from "../config/contact";
+import { PHONE_DISPLAY, WHATSAPP_MOCK_PAYMENT_CONFIRM_URL } from "../config/contact";
 
 function CopyValueButton({ value }) {
   const [status, setStatus] = useState("idle");
@@ -41,8 +41,8 @@ export default function PaymentMethodsPage() {
           </p>
           <h1 className="page-title reveal">Payment methods</h1>
           <p className="page-lead reveal">
-            Use the details below for mock interviews, PDF packs, and bundles. After paying, send a clear screenshot to{" "}
-            <strong>{PHONE_DISPLAY}</strong> on WhatsApp so we can verify and fulfill your order.
+            Use the details below for your <strong>PKR 2000</strong> mock interview. After paying, send a clear screenshot to{" "}
+            <strong>{PHONE_DISPLAY}</strong> on WhatsApp so we can verify and confirm your booking.
           </p>
         </div>
       </section>
@@ -91,21 +91,11 @@ export default function PaymentMethodsPage() {
                 </a>
                 .
               </li>
-              <li>
-                <strong>PDF packs / bundle:</strong>{" "}
-                <a href={WHATSAPP_ORDER_PDF_URL} target="_blank" rel="noreferrer">
-                  Send your payment screenshot on WhatsApp
-                </a>
-                .
-              </li>
             </ul>
             <p className="payment-methods-next__foot">
               <a href="/book-mock-interview" className="btn btn-small ripple-btn btn--with-icon">
                 <SectionIcon name="video" size={18} strokeWidth={2} className="btn-icon" />
                 Book mock interview
-              </a>
-              <a href="/pdf-delivery" className="btn btn-small btn-outline ripple-btn">
-                PDF delivery process
               </a>
             </p>
           </div>
