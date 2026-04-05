@@ -5,7 +5,6 @@ import { roadmaps, ROADMAP_VISIBLE_COUNT } from "../../data/roadmapsData";
 export default function RoadmapsSection() {
   const [active, setActive] = useState(0);
   const r = roadmaps[active];
-  const lockedCount = Math.max(0, r.steps.length - ROADMAP_VISIBLE_COUNT);
 
   return (
     <section className="roadmaps section" id="roadmaps">
@@ -13,13 +12,13 @@ export default function RoadmapsSection() {
         <div className="section-head reveal">
           <p className="eyebrow section-eyebrow">
             <SectionIcon name="route" size={16} className="section-eyebrow-icon" />
-            Learning roadmaps
+            Track roadmaps
           </p>
-          <h2>Your path, drawn like a real road</h2>
+          <h2>Structured paths from core skills to interview readiness</h2>
           <p className="roadmaps-lead">
-            Preview the first milestones free — the rest stay blurred so you can see the shape of the journey. The{" "}
-            <strong>full roadmap</strong> (sequence, depth, pacing, interview focus) is included when you book a{" "}
-            <strong>PKR 2000 mock interview</strong> for this track.
+            Each overview orients you to how a track is built toward interview-ready competence. In a{" "}
+            <strong>PKR 2000</strong> mock, we work with you on priorities, sequencing, and depth for your chosen focus—
+            grounded in how hiring teams typically evaluate these topics.
           </p>
         </div>
 
@@ -58,7 +57,7 @@ export default function RoadmapsSection() {
                   <li key={`${r.id}-${i}`} className={`roadmap-step ${side} ${locked ? "roadmap-step--locked" : ""}`}>
                     <div className="roadmap-step-inner">
                       <div className="roadmap-step-card">
-                        <span className="roadmap-mile-label">{locked ? "Further ahead" : `Milestone ${i + 1}`}</span>
+                        <span className="roadmap-mile-label">{locked ? "On this track" : `Milestone ${i + 1}`}</span>
                         <h4>{step.title}</h4>
                         <p>{step.detail}</p>
                       </div>
@@ -78,21 +77,21 @@ export default function RoadmapsSection() {
             <div className="roadmap-unlock-icon" aria-hidden="true">
               <SectionIcon name="sparkles" size={26} strokeWidth={1.5} />
             </div>
-            <p className="roadmap-unlock-title">
-              <strong>{lockedCount} more stops</strong> on this road — we walk through them in your mock
-            </p>
+            <p className="roadmap-unlock-title">Take this track further in a dedicated mock interview</p>
             <p className="roadmap-unlock-sub">
-              Book a mock for this track (PKR 2000). In session we cover the full sequence, what to skip, what to double
-              down on, and how it shows up in interviews.
+              Book for <strong>PKR 2000</strong>. Your session is where we translate this structure into a concrete plan:
+              emphasis, sequencing, and interview expectations—aligned to how you are preparing.
             </p>
             <a
               href={`/book-mock-interview?track=${encodeURIComponent(r.id)}`}
               className="btn ripple-btn btn--with-icon roadmap-unlock-btn"
             >
               <SectionIcon name="video" size={20} strokeWidth={2} className="btn-icon" />
-              Book mock interview — full roadmap
+              Book mock interview for this track
             </a>
-            <p className="roadmap-unlock-foot">Same booking flow as Pricing · Pay PKR 2000 and confirm on WhatsApp</p>
+            <p className="roadmap-unlock-foot">
+              Standard booking: PKR 2000 per session; confirm payment on WhatsApp as listed on Pricing.
+            </p>
           </div>
         </div>
       </div>

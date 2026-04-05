@@ -1,4 +1,6 @@
 import { useState } from "react";
+import BrandLogo from "./BrandLogo";
+import BrandWordmark from "./BrandWordmark";
 import ThemeToggle from "./ThemeToggle";
 import SectionIcon from "./SectionIcon";
 
@@ -10,9 +12,9 @@ export default function Header({ theme, onToggleTheme, isBookingPage = false }) 
   return (
     <header className="site-header" id="top">
       <nav className="container nav">
-        <a href={isBookingPage ? "/" : "#top"} className="logo" aria-label="MockMaster home">
-          <span className="logo-mark">MM</span>
-          <span className="logo-text">MockMaster</span>
+        <a href={isBookingPage ? "/" : "#top"} className="logo" aria-label="MockLab home">
+          <BrandLogo variant="header" />
+          <BrandWordmark />
         </a>
 
         <button className="menu-toggle" aria-label="Toggle menu" onClick={() => setOpen((v) => !v)}>
@@ -32,16 +34,7 @@ export default function Header({ theme, onToggleTheme, isBookingPage = false }) 
               Mock Process
             </a>
           </li>
-          <li>
-            <a href={homeHash("session-materials")} onClick={() => setOpen(false)}>
-              Materials
-            </a>
-          </li>
-          <li>
-            <a href={homeHash("roadmaps")} onClick={() => setOpen(false)}>
-              Roadmaps
-            </a>
-          </li>
+         
           <li>
             <a href={homeHash("pricing")} onClick={() => setOpen(false)}>
               Pricing

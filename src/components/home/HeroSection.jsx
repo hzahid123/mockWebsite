@@ -56,8 +56,8 @@ export default function HeroSection() {
             </p>
             <h1>Master Your Interviews with Real Mock Practice</h1>
             <p className="hero-subtext">
-              Prepare with realistic mock interviews, personalized feedback, and role-based guidance. Book a 1:1 session
-              and get related interview question materials for your track—no separate PDF store.
+              Practice with realistic mock interviews, structured feedback, and coaching aligned to your role and stack.
+              Book a private session and walk away with clear notes on what to improve before your next interview.
             </p>
             <div className="hero-actions">
               <a href="/book-mock-interview" className="btn ripple-btn btn--with-icon">

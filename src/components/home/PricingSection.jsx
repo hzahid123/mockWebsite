@@ -8,9 +8,9 @@ export default function PricingSection() {
         <div className="section-head reveal">
           <p className="eyebrow section-eyebrow">
             <SectionIcon name="packageOpen" size={16} className="section-eyebrow-icon" />
-            Pricing Plans
+            Pricing
           </p>
-          <h2>Simple Plans for Every Stage</h2>
+          <h2>Mock interview session pricing</h2>
         </div>
         <div className="pricing-grid">
           {pricingPlans.map((plan) => {

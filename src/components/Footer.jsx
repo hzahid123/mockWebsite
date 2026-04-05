@@ -1,5 +1,7 @@
 import { FaCreditCard, FaEnvelope, FaLinkedinIn, FaPhone } from "react-icons/fa6";
 import { SiFacebook, SiInstagram, SiWhatsapp, SiYoutube } from "react-icons/si";
+import BrandLogo from "./BrandLogo";
+import BrandWordmark from "./BrandWordmark";
 import {
   CONTACT_EMAIL,
   MAILTO_CONTACT,
@@ -20,8 +22,14 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container footer-grid">
         <div>
+          <a href="/" className="footer-brand-lockup" aria-label="MockLab home">
+            <BrandLogo variant="footer" />
+            <BrandWordmark />
+          </a>
           <h3>About</h3>
-          <p>MockMaster helps candidates prepare with realistic interviews and high-quality learning programs.</p>
+          <p>
+            MockLab helps candidates prepare with realistic interviews, feedback, and learning tracks.
+          </p>
         </div>
         <div>
           <h3>Contact</h3>
@@ -108,7 +116,7 @@ export default function Footer() {
           </p>
         </div>
       </div>
-      <p className="copyright">&copy; {new Date().getFullYear()} MockMaster. All rights reserved.</p>
+      <p className="copyright">&copy; {new Date().getFullYear()} MockLab. All rights reserved.</p>
     </footer>
   );
 }

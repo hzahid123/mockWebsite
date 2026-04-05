@@ -18,26 +18,27 @@ const initialForm = {
   email: "",
   phone: "",
   role: "",
-  company: "",
   prefDate: "",
   slot: "",
   notes: "",
   consent: false
 };
 
-/** Query `?track=` from Roadmaps section — same ids as roadmapsData. */
-const TRACK_TO_ROLE = {
-  frontend: "frontend",
-  backend: "backend",
-  dotnet: "dotnet",
-  angular: "angular"
+/** Query `?track=` from Roadmaps — prefills Target role as plain text (user may edit). */
+const TRACK_PREFILL_ROLE = {
+  frontend: "Frontend Engineer",
+  backend: "Backend Engineer",
+  oop: "OOP",
+  database: "Database",
+  dsa: "DSA"
 };
 
 const TRACK_TITLE = {
   frontend: "Frontend",
   backend: "Backend",
-  dotnet: ".NET",
-  angular: "Angular"
+  oop: "OOP",
+  database: "Database",
+  dsa: "DSA"
 };
 
 export default function BookMockInterviewPage() {
@@ -56,14 +57,14 @@ export default function BookMockInterviewPage() {
   }, []);
 
   const trackParam = searchParams.get("track");
-  const trackRole = trackParam && TRACK_TO_ROLE[trackParam];
+  const trackPrefillRole = trackParam && TRACK_PREFILL_ROLE[trackParam];
   const trackTitle = trackParam && TRACK_TITLE[trackParam];
 
   useEffect(() => {
-    if (trackRole) {
-      setForm((prev) => ({ ...prev, role: trackRole }));
+    if (trackPrefillRole) {
+      setForm((prev) => ({ ...prev, role: trackPrefillRole }));
     }
-  }, [trackRole]);
+  }, [trackParam, trackPrefillRole]);
 
   const setField = (key, value) => setForm((prev) => ({ ...prev, [key]: value }));
 
@@ -74,7 +75,7 @@ export default function BookMockInterviewPage() {
       nextErrors.email = "Please enter a valid email.";
     }
     if (!form.phone.trim()) nextErrors.phone = "Please enter a phone number.";
-    if (!form.role) nextErrors.role = "Please select a target role.";
+    if (!form.role.trim()) nextErrors.role = "Please enter your target role.";
     if (!form.prefDate) nextErrors.prefDate = "Please choose a preferred date.";
     if (!form.slot) nextErrors.slot = "Please choose a time slot.";
     if (!form.consent) nextErrors.consent = "Please accept to continue.";
@@ -108,15 +109,15 @@ export default function BookMockInterviewPage() {
           <p className="eyebrow reveal">Mock Interview</p>
           <h1 className="page-title reveal">Book Your Mock Interview</h1>
           <p className="page-lead reveal">
-            One flow for all mocks: submit your details and preferred slot below, pay PKR 2000 (JazzCash or Meezan Bank —{" "}
-            <a href={PAYMENT_METHODS_PATH}>all details here</a>
-            ), then send your payment confirmation on WhatsApp so we can lock in your session. If you came from Learning
-            roadmaps, the full roadmap for your niche is part of this same session — not a separate booking.
+            Use the form below to share your contact details and preferred schedule. The session fee is{" "}
+            <strong>PKR 2000</strong>, with payment accepted via JazzCash or Meezan Bank; see the{" "}
+            <a href={PAYMENT_METHODS_PATH}>payment methods</a> page for wallet and account information. After you pay,
+            please send your payment confirmation through WhatsApp so we can verify receipt and confirm your booking.
           </p>
-          {trackTitle && trackRole ? (
+          {trackTitle && trackPrefillRole ? (
             <p className="page-lead-note reveal">
-              <strong>{trackTitle}</strong> is pre-selected below; we will cover the complete roadmap for this track in
-              your mock.
+              <strong>{trackTitle}</strong> appears in Target role and may be revised. Your session will be structured
+              around that focus, consistent with typical interview priorities for the area.
             </p>
           ) : null}
         </div>
@@ -169,7 +170,7 @@ export default function BookMockInterviewPage() {
                       type="text"
                       id="fullName"
                       autoComplete="name"
-                      placeholder="Jane Doe"
+                      placeholder=""
                       value={form.fullName}
                       onChange={(e) => setField("fullName", e.target.value)}
                     />
@@ -177,14 +178,14 @@ export default function BookMockInterviewPage() {
                   </div>
                   <div className="form-group">
                     <label className="form-label" htmlFor="email">
-                      Work email <span className="req">*</span>
+                      Email <span className="req">*</span>
                     </label>
                     <input
                       className="form-input"
                       type="email"
                       id="email"
                       autoComplete="email"
-                      placeholder="you@company.com"
+                      placeholder="abc@gmail.com"
                       value={form.email}
                       onChange={(e) => setField("email", e.target.value)}
                     />
@@ -216,32 +217,16 @@ export default function BookMockInterviewPage() {
                   <label className="form-label" htmlFor="role">
                     Target role <span className="req">*</span>
                   </label>
-                  <select className="form-select" id="role" value={form.role} onChange={(e) => setField("role", e.target.value)}>
-                    <option value="">Choose a track</option>
-                    <option value="frontend">Frontend Engineer</option>
-                    <option value="backend">Backend Engineer</option>
-                    <option value="angular">Angular</option>
-                    <option value="dotnet">.NET / Backend (.NET)</option>
-                    <option value="fullstack">Full Stack Engineer</option>
-                    <option value="system">System Design</option>
-                    <option value="data">Data / ML</option>
-                    <option value="other">Other</option>
-                  </select>
-                  <p className="form-error">{errors.role || ""}</p>
-                </div>
-
-                <div className="form-group">
-                  <label className="form-label" htmlFor="company">
-                    Target company type (optional)
-                  </label>
                   <input
                     className="form-input"
                     type="text"
-                    id="company"
-                    placeholder="e.g. FAANG, startup, enterprise"
-                    value={form.company}
-                    onChange={(e) => setField("company", e.target.value)}
+                    id="role"
+                    autoComplete="organization-title"
+                    placeholder="e.g. Frontend Engineer, Backend Engineer etc"
+                    value={form.role}
+                    onChange={(e) => setField("role", e.target.value)}
                   />
+                  <p className="form-error">{errors.role || ""}</p>
                 </div>
 
                 <h2 className="form-section-title">
@@ -328,7 +313,7 @@ export default function BookMockInterviewPage() {
             <div className="booking-aside-card booking-aside-payment">
               <h3>Where to pay</h3>
               <p className="booking-aside-payment-lead">
-                JazzCash and Meezan Bank account details (with copy buttons) are on one page.
+                JazzCash and Meezan Bank account details.
               </p>
               <a href={PAYMENT_METHODS_PATH} className="btn btn-small ripple-btn btn--with-icon booking-payment-link">
                 <SectionIcon name="wallet" size={18} strokeWidth={2} className="btn-icon" />

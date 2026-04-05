@@ -1,4 +1,4 @@
-/** First N milestones shown clearly; rest are preview-blurred (full path covered in PKR 2000 mock for this track). */
+/** How many roadmap steps render in the “open” state before locked styling (see RoadmapsSection). */
 export const ROADMAP_VISIBLE_COUNT = 3;
 
 export const roadmaps = [
@@ -33,33 +33,48 @@ export const roadmaps = [
     ]
   },
   {
-    id: "dotnet",
-    title: ".NET",
-    subtitle: "C#, ASP.NET Core, and enterprise patterns",
+    id: "oop",
+    title: "OOP",
+    subtitle: "Objects, design principles, and maintainable code",
     steps: [
-      { title: "C# & .NET fundamentals", detail: "Types, LINQ, async/await, and project structure." },
-      { title: "ASP.NET Core pipeline", detail: "Middleware, DI, configuration, and hosting models." },
-      { title: "Web APIs & minimal APIs", detail: "Controllers, validation, filters, and OpenAPI." },
-      { title: "Entity Framework Core", detail: "DbContext, migrations, relationships, and performance." },
-      { title: "Auth in .NET", detail: "Identity, JWT bearer, policies, and secure APIs." },
-      { title: "Testing", detail: "xUnit, integration tests with TestServer, and mocking boundaries." },
-      { title: "Deployment & cloud", detail: "Docker, Azure/AWS touchpoints, and configuration by environment." },
-      { title: "Interview focus", detail: "SOLID in .NET, performance tuning, and architecture talking points." }
+      { title: "Core concepts", detail: "Classes, objects, encapsulation, and abstraction in practice." },
+      { title: "Inheritance & polymorphism", detail: "When to extend vs compose; interfaces and contracts." },
+      { title: "SOLID principles", detail: "SRP through DIP—recognizing violations and refactors." },
+      { title: "Design patterns", detail: "Common creational, structural, and behavioral patterns—and when not to use them." },
+      { title: "Coupling & cohesion", detail: "Module boundaries, dependency direction, and testability." },
+      { title: "Modeling real domains", detail: "Entities, value objects, and keeping models honest." },
+      { title: "Error handling & invariants", detail: "Defensive APIs, validation, and failure modes." },
+      { title: "Interview focus", detail: "Explain trade-offs, sketch class diagrams, and defend design choices." }
     ]
   },
   {
-    id: "angular",
-    title: "Angular",
-    subtitle: "TypeScript, RxJS, and scalable SPAs",
+    id: "database",
+    title: "Database",
+    subtitle: "SQL, modeling, and how data scales",
     steps: [
-      { title: "TypeScript for Angular", detail: "Strict typing, generics, and decorators mental model." },
-      { title: "Components & templates", detail: "Inputs/outputs, lifecycle, and change detection basics." },
-      { title: "Modules & standalone APIs", detail: "Routing, lazy loading, and library boundaries." },
-      { title: "RxJS & state", detail: "Observables, operators, Subjects, and avoiding memory leaks." },
-      { title: "Forms & validation", detail: "Reactive forms, validators, and UX for errors." },
-      { title: "HTTP & interceptors", detail: "Services, error handling, and auth headers." },
-      { title: "Testing Angular", detail: "Jasmine/Karma, component tests, and TestBed patterns." },
-      { title: "Production Angular", detail: "Performance, i18n, a11y, and senior interview themes." }
+      { title: "Relational foundations", detail: "Tables, keys, normalization, and when to denormalize." },
+      { title: "SQL fluency", detail: "Joins, aggregates, subqueries, and readable query structure." },
+      { title: "Indexing & performance", detail: "B-trees, covering indexes, and reading execution plans at a high level." },
+      { title: "Transactions & consistency", detail: "ACID, isolation levels, and common concurrency pitfalls." },
+      { title: "Schema design", detail: "One-to-many vs many-to-many, soft deletes, and audit fields." },
+      { title: "Migrations & evolution", detail: "Backward-compatible changes and zero-downtime habits." },
+      { title: "Beyond relational", detail: "When NoSQL fits; caching and read replicas at a conceptual level." },
+      { title: "Interview focus", detail: "Design a schema, optimize a slow query, and discuss trade-offs aloud." }
+    ]
+  },
+  {
+    id: "dsa",
+    title: "DSA",
+    subtitle: "Structures, algorithms, and interview problem solving",
+    steps: [
+      { title: "Complexity & basics", detail: "Big-O intuition, recursion, and choosing the right approach." },
+      { title: "Arrays & strings", detail: "Two pointers, sliding window, and in-place techniques." },
+      { title: "Hashing & sets", detail: "Frequency maps, deduplication, and amortized O(1) thinking." },
+      { title: "Stacks & queues", detail: "Monotonic stack, BFS layering, and parsing patterns." },
+      { title: "Trees & graphs", detail: "Traversals, BST properties, shortest path, and cycle detection." },
+      { title: "Sorting & searching", detail: "Binary search variants, merge/quick sort trade-offs." },
+      { title: "Dynamic programming", detail: "Memoization vs tabulation; classic patterns (knapsack, LCS-style)." },
+      { title: "Interview focus", detail: "Clarify constraints, test edge cases, and communicate your reasoning." }
     ]
   }
 ];

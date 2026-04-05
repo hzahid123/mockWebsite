@@ -115,6 +115,8 @@ a {
   background: var(--header-bg);
   border-bottom: 1px solid var(--header-border);
   transition: background 0.4s ease, border-color 0.3s ease;
+  /* Let a taller logo extend past the slim bar instead of growing the header */
+  overflow: visible;
 }
 
 .nav {
@@ -123,6 +125,7 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  overflow: visible;
 }
 
 .logo {
@@ -130,29 +133,111 @@ a {
   align-items: center;
   gap: 0.55rem;
   font-weight: 800;
-  transition: transform 0.3s ease, opacity 0.25s ease;
+  transition: color 0.25s ease;
 }
 
-.logo:hover {
-  transform: scale(1.03);
-  opacity: 0.92;
+/* Avoid scaling the lockup on hover — transform blurs raster logos */
+.logo:hover .logo-wordmark-lab {
+  color: var(--primary);
 }
 
-.logo-mark {
-  width: 2rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: var(--secondary);
-  background: linear-gradient(135deg, var(--primary), #7b1844);
-  font-size: 0.82rem;
+[data-theme="dark"] .logo:hover .logo-wordmark-lab {
+  color: #ecd9c4;
 }
 
-.logo-text {
+/* Raster logo: sharp scaling + room for fine detail (circuit lines, handshake, etc.) */
+.brand-logo-img {
+  flex-shrink: 0;
+  display: block;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+  opacity: 1;
+  image-rendering: auto;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* 5rem — stable nav row; links, theme toggle, and CTA stay aligned */
+.brand-logo-img--header {
+  width: 4rem;
+  height: 4rem;
+  max-width: 4rem;
+  max-height: 4rem;
+  flex-shrink: 0;
+  /* Light lift so thin maroon/gold lines stay readable on the glass header */
+  filter: contrast(1.08) brightness(1.02);
+}
+
+[data-theme="dark"] .brand-logo-img--header {
+  filter: contrast(1.1) brightness(1.08);
+}
+
+.brand-logo-img--footer {
+  width: 5rem;
+  height: 5rem;
+  max-width: 5rem;
+  max-height: 5rem;
+  flex-shrink: 0;
+  filter: contrast(1.06) brightness(1.02);
+}
+
+[data-theme="dark"] .brand-logo-img--footer {
+  filter: contrast(1.08) brightness(1.06);
+}
+
+/* SVG fallback mark — no raster filters */
+svg.brand-logo-img--header,
+svg.brand-logo-img--footer {
+  filter: none;
+}
+
+.logo-wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.04em;
   font-family: var(--font-sans);
-  font-weight: 600;
+  font-size: clamp(1.05rem, 2.1vw, 1.28rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.logo-wordmark-mock {
+  font-weight: 700;
   color: var(--primary-text);
+}
+
+.logo-wordmark-lab {
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.footer-brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.65rem;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.footer-brand-lockup:hover {
+  transform: translateY(-1px);
+}
+
+
+.footer-brand-lockup .logo-wordmark {
+  font-size: 1.05rem;
+}
+
+.footer-brand-lockup .logo-wordmark-mock,
+.footer-brand-lockup .logo-wordmark-lab {
+  color: var(--footer-text);
+}
+
+.footer-brand-lockup .logo-wordmark-lab {
+  color: var(--accent);
 }
 
 .nav-links {
@@ -481,7 +566,6 @@ a {
   color: currentColor;
 }
 
-.trust-grid,
 .services-grid,
 .steps-grid,
 .course-grid,
@@ -491,61 +575,6 @@ a {
 .footer-grid {
   display: grid;
   gap: 1rem;
-}
-
-.trust-grid {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.stat-card {
-  background: var(--surface);
-  border: 1px solid rgba(92, 10, 46, 0.09);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 1.2rem;
-  text-align: center;
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
-}
-
-[data-theme="dark"] .stat-card {
-  border-color: rgba(215, 188, 143, 0.12);
-}
-
-.stat-card:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: var(--shadow-hover);
-}
-
-.stat-card-icon {
-  width: 3.25rem;
-  height: 3.25rem;
-  margin: 0 auto 0.85rem;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(145deg, rgba(92, 10, 46, 0.12), rgba(215, 188, 143, 0.15));
-  color: var(--primary);
-}
-
-[data-theme="dark"] .stat-card-icon {
-  background: linear-gradient(145deg, rgba(215, 188, 143, 0.12), rgba(92, 10, 46, 0.35));
-  color: var(--accent);
-}
-
-.stat-card h2 {
-  margin: 0;
-  font-family: var(--font-sans);
-  font-weight: 600;
-  color: var(--primary-text);
-  font-size: clamp(1.15rem, 2.2vw, 1.35rem);
-  line-height: 1.25;
-}
-
-.stat-card p {
-  margin: 0.45rem 0 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.55;
 }
 
 /* —— Pakistan software houses marquee —— */
@@ -742,7 +771,9 @@ a {
 }
 
 .services-grid {
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
+  max-width: 28rem;
+  margin-inline: auto;
 }
 
 .service-card,
@@ -1526,11 +1557,7 @@ a {
 }
 
 /* Staggered reveal delays for grids */
-.trust-grid .reveal:nth-child(1) { transition-delay: 0.05s; }
-.trust-grid .reveal:nth-child(2) { transition-delay: 0.15s; }
-.trust-grid .reveal:nth-child(3) { transition-delay: 0.25s; }
 .services-grid .reveal:nth-child(1) { transition-delay: 0.08s; }
-.services-grid .reveal:nth-child(2) { transition-delay: 0.2s; }
 .steps-grid .reveal:nth-child(1) { transition-delay: 0.05s; }
 .steps-grid .reveal:nth-child(2) { transition-delay: 0.15s; }
 .steps-grid .reveal:nth-child(3) { transition-delay: 0.25s; }
@@ -1620,7 +1647,6 @@ a {
     display: none;
   }
 
-  .trust-grid,
   .steps-grid,
   .testimonial-grid,
   .why-grid,

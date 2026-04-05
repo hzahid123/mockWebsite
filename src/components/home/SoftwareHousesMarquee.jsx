@@ -48,7 +48,8 @@ export default function SoftwareHousesMarquee() {
         </p>
         <h2 id="software-marquee-heading">The same caliber as top software houses</h2>
         <p className="software-marquee-lead">
-          Interview prep aligned with how teams hire at leading product and services companies — names you already know.
+          Mock interviews and feedback are structured around the technical and behavioral standards used by established
+          product and technology services organizations—so your practice reflects how hiring actually works in the field.
         </p>
       </div>
 

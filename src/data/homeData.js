@@ -1,39 +1,13 @@
 import { PHONE_DISPLAY } from "../config/contact";
 
-/** Honest trust signals — no fabricated volume stats. */
-export const trustPillars = [
-  {
-    icon: "listChecks",
-    title: "Realistic format",
-    description: "Practice structured like real technical and behavioral rounds—no inflated claims, just focused prep."
-  },
-  {
-    icon: "messageMore",
-    title: "Clear feedback",
-    description: "After each mock you get concrete notes: what landed, what to tighten, and what to practice next."
-  },
-  {
-    icon: "calendarClock",
-    title: "Your pace",
-    description: "Book when you are ready. Sessions are tailored to your role and experience—not one-size-fits-all."
-  }
-];
-
 export const services = [
   {
     icon: "mic",
     title: "Mock Interviews",
-    description: "Practice real-world technical and behavioral rounds tailored to your target role and company level.",
+    description:
+      "Practice real-world technical and behavioral rounds tailored to your target role and company level.",
     ctaLabel: "Book mock interview",
     ctaHref: "/book-mock-interview"
-  },
-  {
-    icon: "fileText",
-    title: "Question materials with your session",
-    description:
-      "Curated interview question packs (PDF-style) for your track are shared when you book a 1:1 mock—not sold separately here.",
-    ctaLabel: "Book to get materials",
-    ctaHref: "#session-materials"
   }
 ];
 
@@ -54,53 +28,30 @@ export const mockSteps = [
   {
     number: "03",
     icon: "badgeCheck",
-    title: "Feedback & practice pack",
+    title: "Feedback & next steps",
     description:
-      "Get expert feedback on your mock, plus related question materials for your niche so you can keep drilling after the session."
-  }
-];
-
-/** Topics covered by materials shared after a booked mock (no standalone purchase on this site). */
-export const sessionMaterialTopics = [
-  {
-    icon: "layout",
-    title: "Frontend",
-    blurb: "UI, JS, and typical frontend interview angles aligned to your stack."
-  },
-  {
-    icon: "server",
-    title: "Backend",
-    blurb: "APIs, data, and service design questions matched to your focus."
-  },
-  {
-    icon: "layers",
-    title: "Full stack",
-    blurb: "Cross-cutting prompts that mirror end-to-end ownership interviews."
-  },
-  {
-    icon: "binary",
-    title: "DSA",
-    blurb: "Patterns and problem types to reinforce what interviewers actually ask."
+      "Receive structured feedback on your performance—what worked, what to sharpen, and how to prepare for your next round."
   }
 ];
 
 export const testimonials = [
   {
-    name: "Aisha K.",
+    name: "Fatima",
     avatar: "woman",
-    quote: "The mock rounds felt exactly like real interviews. The feedback was precise and helped me crack my frontend role."
+    quote:
+      "The mock rounds felt exactly like real interviews. The feedback was precise and helped me crack my frontend role."
   },
   {
-    name: "Daniel R.",
+    name: "Atta",
     avatar: "man",
     quote:
       "I improved my confidence and system design approach in just a few sessions. Highly recommended for serious candidates."
   },
   {
-    name: "Meera S.",
+    name: "Zara",
     avatar: "woman",
     quote:
-      "The mock sessions and follow-up practice materials gave me a clear prep plan. I landed two interview calls within weeks."
+      "The mocks and clear guidance gave me a focused prep plan. I landed two interview calls within weeks."
   }
 ];
 
@@ -128,7 +79,7 @@ export const pricingPlans = [
     name: "Mock Interview",
     price: "PKR 2000",
     description:
-      "One-on-one mock with structured feedback. After your session, you receive related question materials for your track. Session scheduled after payment confirmation.",
+      "One-on-one mock interview with structured, actionable feedback. Your session is scheduled after payment confirmation on WhatsApp.",
     featured: true,
     ctaHref: "/book-mock-interview",
     ctaLabel: "Book mock interview"
@@ -136,10 +87,6 @@ export const pricingPlans = [
 ];
 
 export const faqs = [
-  {
-    q: "How do I get interview question PDFs or packs?",
-    a: `We do not sell PDFs separately on this site. When you book a 1:1 mock interview (PKR 2000), we share curated question materials matched to your role or track after the session so you can keep practicing. Book from the home page or Pricing, then confirm payment on WhatsApp at ${PHONE_DISPLAY}.`
-  },
   {
     q: "How do I pay — JazzCash or bank?",
     a: `All wallet and bank account details (JazzCash and Meezan Bank, account title Haseeb Zahid) are on the Payment methods page. After paying for your mock, send your screenshot to ${PHONE_DISPLAY} on WhatsApp so we can confirm your booking.`
@@ -154,11 +101,11 @@ export const faqs = [
   },
   {
     q: "How much does a mock interview cost?",
-    a: "A single mock interview session is PKR 2000. Related question materials are included with your booked session—not sold as a separate product here."
+    a: "A single mock interview session is PKR 2000, including the session and written feedback after your round."
   },
   {
     q: "How do learning roadmaps work on this site?",
-    a: "The Roadmaps section is a free preview: the first milestones are clear, and the rest stay blurred as a hook for what is ahead. The full route — order, depth, pacing, and how it ties to interviews — is covered inside your PKR 2000 mock interview when you book for that niche (OOP, Database, DSA, Frontend, or Backend). Use Book mock interview from the roadmap CTA or Pricing; pay and confirm on WhatsApp as usual."
+    a: "Roadmaps give a high-level view of how each track is organized toward interview readiness. The detailed walkthrough—what to emphasize, in what order, and how it shows up in hiring conversations—is part of your PKR 2000 mock when you book for that track (OOP, Database, DSA, Frontend, or Backend). Book from the roadmaps section or Pricing, then confirm payment on WhatsApp as described there."
   },
   {
     q: "How can I message you on WhatsApp?",

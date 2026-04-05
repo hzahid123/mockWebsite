@@ -12,7 +12,7 @@ export const PAYMENT_METHODS = [
     subtitle: "Mobile wallet transfer",
     accountLabel: "Wallet / mobile account",
     accountValue: "03044756078",
-    accountName: "Haseeb Zahid",
+    accountName: "Fouzia Zahid",
     hint: "Pay from the JazzCash app using this mobile account title. Double-check the recipient name before sending."
   },
   {

@@ -1,16 +1,5 @@
 import { CONTACT_EMAIL } from "../config/contact";
 
-const ROLE_LABELS = {
-  frontend: "Frontend Engineer",
-  backend: "Backend Engineer",
-  fullstack: "Full Stack Engineer",
-  dotnet: ".NET / Backend (.NET)",
-  angular: "Angular",
-  system: "System Design",
-  data: "Data / ML",
-  other: "Other"
-};
-
 const SLOT_LABELS = {
   morning: "Morning (9:00–12:00)",
   afternoon: "Afternoon (12:00–17:00)",
@@ -38,8 +27,7 @@ export async function submitMockInterviewBooking(form) {
       name: form.fullName,
       email: form.email,
       phone: form.phone,
-      role: ROLE_LABELS[form.role] || form.role,
-      company: form.company.trim() || "—",
+      role: form.role.trim(),
       preferred_date: form.prefDate,
       time_slot: SLOT_LABELS[form.slot] || form.slot,
       notes: form.notes.trim() || "—",
