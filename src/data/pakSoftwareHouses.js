@@ -37,7 +37,8 @@ export const pakSoftwareHouses = [
     id: "techlogix",
     name: "Techlogix",
     initials: "TL",
-    logo: "/logos/techlogix.png"
+    /** 66×85 PNG (portrait); uses the same square marquee slot as other marks — object-fit: contain centers it. */
+    logo: "/logos/techxlogo.png"
   },
   {
     id: "orenda",
